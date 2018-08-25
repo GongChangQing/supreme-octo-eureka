@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -18,9 +18,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<style type="text/css">
+		a{
+			text-decoration: none;
+			color: black;
+		}
+	</style>
   </head>
   
   <body>
-    This is my JSP page. <br>
+    	<div>
+    		<table align="center">
+    			<tr>
+    				<td style="font-size: 50px">APP信息管理平台</td>
+    			</tr>
+    			
+    			<tr><td><td></tr>
+    			
+    			<tr><td><td></tr>
+    			
+    			<tr>
+    				<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">后台管理系统入口</a></td>
+    			</tr>
+    			
+    			<tr><td><td></tr>
+    			
+    			<tr><td><td></tr>
+    			
+    			<tr>
+    				<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">开发者平台入口</a></td>
+    			</tr>
+    		</table>
+    	</div>
   </body>
+  <script type="text/javascript" src="<%=basePath%>/js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript">
+  	$(function(){
+  		$("a").mouseover(function(){
+  			$(this).css("color","blue");
+  		}).mouseout(function(){
+  			$(this).css("color","black");
+  		})
+  	})
+  </script>
 </html>
