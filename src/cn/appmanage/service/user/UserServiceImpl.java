@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService {
 	@Resource
 	private UserMapper userMapper;
 	
+	//µÇÂ¼
 	@Override
 	public User Login(String Code, int isDev) {
 		return userMapper.getUserByCode(Code, isDev);

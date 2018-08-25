@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	 主页 <br>
+  		<a href="<%=basePath%>app/applist">APP信息管理维护</a>
   </body>
 </html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appmanage.dao.category.CategoryMapper">
+
+	<select id="getCategoryI" resultType="Category">
+		select * from app_category
+		where id = 1 or id = 2;
+	</select>
+	
+	<select id="getCategroyII" resultType="Category">
+		select * from app_category
+		where parentId = #{Iid};
+	</select>
+	
+	<select id="getCategroyIII" resultType="Category">
+		select * from app_category
+		where parentId = #{IIid};
+	</select>
+</mapper>
