@@ -19,7 +19,7 @@
 	http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="classpath:datebase.propertise"/>
+		<property name="location" value="classpath:database.properties"/>
 	</bean>
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> 
@@ -31,7 +31,7 @@
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="configLocation" value="classpath:mybatis-servlet.xml"/>
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
 	</bean>
 	
 	<bean id="txManage" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

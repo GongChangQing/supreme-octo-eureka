@@ -32,18 +32,18 @@
 		<property name="viewResolvers">
 			<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 				<property name="prefix" value="/"/>
-				<property name="subfix" value=".jsp"/>
+				<property name="suffix" value=".jsp"/>
 			</bean>
 		</property>
 	</bean>
 	
 	<!-- 控制器 -->
-	<mvc:annotation-driven>
+	<mvc:annotation-driven conversion-service="myConverter">
 		<mvc:message-converters>
 			<bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
 				<property name="supportedMediaTypes">
 					<list>
-						<value>text/html,charset=UTF-8</value>
+						<value>text/html;charset=UTF-8</value>
 						<value>application/json</value>
 					</list>
 				</property>
@@ -61,15 +61,15 @@
 	<context:component-scan base-package="cn.appmanage.controller"/>
 	
 	<!-- 文件上传 -->
-	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="5000000"/>
 		<property name="defaultEncoding" value="UTF-8"/>
 	</bean>
 	
 	<!-- 自定义日期转换器 -->
-	<bean class="org.springframework.context.support.ConversionServiceFactoryBean">
+	<bean id="myConverter" class="org.springframework.context.support.ConversionServiceFactoryBean">
 		<property name="converters">
-			<bean class="cn.appmanage.DateConverter">
+			<bean class="cn.appmanage.utils.DateConverter">
 				<constructor-arg index="0" value="yyyy-MM-dd"/>
 			</bean>
 		</property>
