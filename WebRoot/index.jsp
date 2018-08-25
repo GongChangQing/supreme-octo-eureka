@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<tr><td><td></tr>
     			
     			<tr>
-    				<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">开发者平台入口</a></td>
+    				<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%=basePath%>user/login">开发者平台入口</a></td>
     			</tr>
     		</table>
     	</div>

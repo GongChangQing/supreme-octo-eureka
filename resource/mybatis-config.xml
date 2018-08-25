@@ -9,6 +9,6 @@
 <!-- 		<setting name="LazyLoadingEnabled" value="false"/> -->
 	</settings>
 	<typeAliases>
-		<package name="cn.appmanage.dao"/>
+		<package name="cn.appmanage.entity"/>
 	</typeAliases>
 </configuration>
