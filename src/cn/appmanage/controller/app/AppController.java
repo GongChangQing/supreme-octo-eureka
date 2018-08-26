@@ -28,7 +28,6 @@ public class AppController {
 			@RequestParam(value="categoryIII",required=false)Integer categoryIII,
 			Model model){
 		
-		//这里有问题
 		List<Category> clist = categoryService.getCategoryI();
 		
 		model.addAttribute("clist", clist);
