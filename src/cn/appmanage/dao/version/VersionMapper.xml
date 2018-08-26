@@ -17,7 +17,24 @@
 		WHERE `id` = #{id}
 	</update>
 	
+	<!-- 根据id查询历史版本 -->
+	<select id="getAppversionById" resultMap="VersionList">
+		SELECT v.*,i.`softwareName` AS appName  FROM `app_version` v,`app_info` i
+		WHERE v.`appId` = i.`id` AND i.`id` = #{id}
+	</select>
+	<resultMap type="Version" id="VersionList">
+		<result column="appName" property="appName"/>
+	</resultMap>
 	
+	
+	<select id="getVersionById" resultType="Version">
+		SELECT * FROM `app_version`
+		WHERE id = (SELECT MAX(id) FROM `app_version` WHERE `appId` = #{id} ORDER BY `versionNo` DESC)
+	</select>
+	
+	<delete id="delVersionByAppId">
+		DELETE FROM `app_version` WHERE `appId` = #{appId}
+	</delete>
 	
 	
 	

@@ -14,6 +14,15 @@ public class Version { //版本信息
 	private String modifyDate;// APP 修改时间
 	private String apkLocPath;//APP 图标路径
 	private String apkFileName;//APP 安装包名称
+	private String appName;//APP软件名称
+
+	public String getAppName() {
+		return appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
+	}
 
 	public int getId() {
 		return id;

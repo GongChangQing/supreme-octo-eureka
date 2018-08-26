@@ -22,4 +22,19 @@ public class AppServiceImpl implements AppService {
 			return null;
 		}
 	}
+	
+	
+	
+	@Override
+	public boolean findDelAppInfoById(Integer id) {
+		try {
+			return appMapper.delAppInfoById(id) > 0;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
 }

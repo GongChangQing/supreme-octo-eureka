@@ -11,4 +11,11 @@ public interface AppMapper {
 	 * @return
 	 */
 	public App getAppInfoById(@Param("id")Integer id);
+	
+	/**
+	 * 根据id删除APP信息
+	 * @param id
+	 * @return
+	 */
+	public int delAppInfoById(@Param("id")Integer id);
 }

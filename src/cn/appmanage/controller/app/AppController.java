@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import cn.appmanage.entity.App;
 import cn.appmanage.entity.Category;
+import cn.appmanage.entity.Version;
 import cn.appmanage.service.app.AppService;
 import cn.appmanage.service.category.CategoryService;
+import cn.appmanage.service.version.VersionService;
 
 @Controller
 @RequestMapping("/app")
@@ -22,6 +24,8 @@ public class AppController {
 	private CategoryService categoryService;
 	@Resource(name="appService")
 	private AppService appService;
+	@Resource(name="versionService")
+	private VersionService versionService;
 	
 	@RequestMapping("/applist")
 	public String appList(@RequestParam(value="appName",required=false)String appName,
@@ -54,17 +58,29 @@ public class AppController {
 	@RequestMapping(value="/view")
 	public String AppInfoView(@RequestParam(value="id")String id,Model model){
 		if(id == null || id.equals("")){
-			return "";
+			return "403";
 		}else{
 			App app = appService.findAppInfoById(Integer.parseInt(id));
-			model.addAttribute("app", app);
-			return "appview";
+			List<Version> appVersionList = versionService.findVersionById(Integer.parseInt(id));
+			model.addAttribute("appInfo", app);
+			model.addAttribute("appVersionList", appVersionList);
+			return "jsp/developer/appinfoview";
 		}
 	}
 	
 	
-	
-	
+	@RequestMapping(value="/delapp")
+	public String delAppAndVersion(@RequestParam(value="id")String id){
+		if(id == null || id.equals("")){
+			return "403";
+		}else{
+			versionService.findDelVersionByAppId(Integer.parseInt(id));
+			if(appService.findDelAppInfoById(Integer.parseInt(id))){
+				return "redirect:/app/applist";
+			}
+			return "redirect:/app/applist";
+		}
+	}
 	
 	
 	

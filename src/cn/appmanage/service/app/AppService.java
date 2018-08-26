@@ -9,4 +9,11 @@ public interface AppService {
 	 * @return
 	 */
 	public App findAppInfoById(Integer id);
+	
+	/**
+	 * 根据App编号删除App信息
+	 * @param id
+	 * @return
+	 */
+	public boolean findDelAppInfoById(Integer id);
 }

@@ -85,13 +85,13 @@
         <div class="x_content" style="display: block;">
          <br>
         <form class="form-horizontal form-label-left" action="appversionmodifysave" method="post" enctype="multipart/form-data">
-           <input type="hidden" name="id" id="id" value="${appVersion.id}">
-           <input type="hidden" name="appId" id="appId" value="${appVersion.appId}">
+           <input type="hidden" name="id" id="id" value="${version.id}">
+           <input type="hidden" name="appId" id="appId" value="${version.appId}">
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">版本号 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input class="form-control col-md-7 col-xs-12" value="${appVersion.versionNo }" 
+              <input class="form-control col-md-7 col-xs-12" value="${version.versionNo }" 
               type="text" readonly="readonly" id="versionNo" name="versionNo">
             </div>
           </div>
@@ -99,7 +99,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">版本大小 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="versionSize" name="versionSize" value="${appVersion.versionSize }"  required="required"
+              <input type="number" id="versionSize" name="versionSize" value="${version.versionSize }"  required="required"
               data-validate-minmax="10,500"  placeholder="请输入版本大小，单位为Mb" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
@@ -117,16 +117,16 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <textarea id="versionInfo" name="versionInfo" required="required"  
               placeholder="请输入本版本的相关信息，本信息作为该版本的详细信息进行版本介绍。" class="form-control col-md-7 col-xs-12">
-              ${appVersion.versionInfo }</textarea>
+              ${version.versionInfo }</textarea>
             </div>
           </div>
            <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">apk文件 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            <input type="hidden" id="downloadLink" name="downloadLink" value="${appVersion.downloadLink}"/>
-            <input type="hidden" id="apkLocPath" name="apkLocPath" value="${appVersion.apkLocPath}"/>
-            <input type="hidden" id="apkFileName" name="apkFileName" value="${appVersion.apkFileName}"/>
+            <input type="hidden" id="downloadLink" name="downloadLink" value="${version.downloadLink}"/>
+            <input type="hidden" id="apkLocPath" name="apkLocPath" value="${version.apkLocPath}"/>
+            <input type="hidden" id="apkFileName" name="apkFileName" value="${version.apkFileName}"/>
 			<div id="uploadfile" style="display: none">
 				<input id="attach" type="file" class="form-control col-md-7 col-xs-12" name="attach">
 				<p><span style="color:red;font-weight: bold;">*注：1、大小不得超过500m.2、文件类型：apk</span></p>

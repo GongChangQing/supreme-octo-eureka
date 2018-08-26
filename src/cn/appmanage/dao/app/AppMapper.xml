@@ -5,4 +5,8 @@
 	<select id="getAppInfoById" resultType="App">
 		SELECT * FROM `app_info` WHERE id = #{id}
 	</select>
+	
+	<delete id="delAppInfoById">
+		DELETE FROM `app_info` WHERE `id` = #{id}
+	</delete>
 </mapper>
