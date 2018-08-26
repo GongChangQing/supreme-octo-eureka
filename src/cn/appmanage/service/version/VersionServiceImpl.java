@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import cn.appmanage.dao.version.VersionMapper;
+import cn.appmanage.entity.App;
 import cn.appmanage.entity.Version;
 
 @Service("versionService")
@@ -22,6 +23,7 @@ public class VersionServiceImpl implements VersionService {
 			return false;
 		}
 	}
+	
 	
 	
 }

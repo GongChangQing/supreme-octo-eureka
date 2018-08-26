@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import cn.appmanage.entity.App;
 import cn.appmanage.entity.Category;
+import cn.appmanage.service.app.AppService;
 import cn.appmanage.service.category.CategoryService;
 
 @Controller
@@ -18,6 +20,8 @@ public class AppController {
 	
 	@Resource
 	private CategoryService categoryService;
+	@Resource(name="appService")
+	private AppService appService;
 	
 	@RequestMapping("/applist")
 	public String appList(@RequestParam(value="appName",required=false)String appName,
@@ -40,4 +44,28 @@ public class AppController {
 		
 		return "jsp/applist";
 	}
+	
+	/**
+	 * 根据id查询APP信息，并显示到jsp页面中
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/view")
+	public String AppInfoView(@RequestParam(value="id")String id,Model model){
+		if(id == null || id.equals("")){
+			return "";
+		}else{
+			App app = appService.findAppInfoById(Integer.parseInt(id));
+			model.addAttribute("app", app);
+			return "appview";
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 }

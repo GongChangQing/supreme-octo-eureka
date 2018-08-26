@@ -1,5 +1,8 @@
 package cn.appmanage.dao.version;
 
+import org.apache.ibatis.annotations.Param;
+
+import cn.appmanage.entity.App;
 import cn.appmanage.entity.Version;
 
 public interface VersionMapper {
@@ -9,4 +12,6 @@ public interface VersionMapper {
 	 * @return
 	 */
 	public int modifyVersionById(Version version);
+	
+	
 }
