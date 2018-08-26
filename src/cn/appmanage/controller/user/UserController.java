@@ -47,6 +47,6 @@ public class UserController {
 	
 	@RequestMapping("/frame")
 	public String home(){
-		return "jsp/home";
+		return "jsp/developer/main";
 	}
 }

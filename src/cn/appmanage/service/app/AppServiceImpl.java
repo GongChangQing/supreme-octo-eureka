@@ -2,9 +2,11 @@ package cn.appmanage.service.app;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import cn.appmanage.dao.app.AppMapper;
 import cn.appmanage.entity.App;
-
+@Service("appService")
 public class AppServiceImpl implements AppService {
 	@Resource(name="appMapper")
 	private AppMapper appMapper;
