@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appmanage.dao.version.VersionMapper">
+	<update id="modifyVersionById">
+		UPDATE `app_version` 
+		<set>
+		  <if test="versionNo != null and versionNo != ''">`versionNo` = #{versionNo},</if>
+		  <if test="versionNo != null and versionNo != ''">`versionInfo` = #{versionInfo},</if>
+		  <if test="versionNo != null and versionNo != ''">`publishStatus` = #{publishStatus},</if>
+		  <if test="versionNo != null and versionNo != ''">`downloadLink` = #{downloadLink},</if>
+		  <if test="versionNo != null and versionNo != ''">`versionSize` = #{versionSize},</if>
+		  <if test="versionNo != null and versionNo != ''">`modifyBy` = #{modifyBy},</if>
+		  <if test="versionNo != null and versionNo != ''">`modifyDate` = #{modifyDate},</if>
+		  <if test="versionNo != null and versionNo != ''">`apkFileName` = #{apkFileName}</if>
+		  </set>
+		WHERE `id` = #{id}
+	</update>
+</mapper>	
